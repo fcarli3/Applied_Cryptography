@@ -1,2 +1,2 @@
 # Applied_Cryptography
-Assignments of Applied Cryptography course
+This repository contains lab assigments of Applied Cryptography (Master Degree in Cybersecurity at University of Pisa).
