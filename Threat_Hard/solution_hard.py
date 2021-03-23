@@ -3,23 +3,22 @@ import sys
 import random
 import time
 
-#Si potrà fare il bruteforce sui valori di A e C sfruttando la seguente proprietà:
+# A and C values can be bruteforced thanks to the following properties:
 #
-#In un espressione in modulo posso applicare il modulo ad ogni operando e poi all'espressione intera
 # (A*k + C) mod n = ((A mod n)*k + (C mod n)) mod n
 #
-#In questo modo si potrà restringere il range di ricerca, passando da 2^128 a 2^8 sia per A che per C
-#Si avrà A = A mod 256 e C = C mod 256
+# That way, the range of all possible values of A and C passes from 2^128 to 2^8.
+# A = A mod 256 and C = C mod 256
 #
-#Potrò sfruttare ciò unito al fatto che ogni messaggio cifrato inizia con 'From: ', quindi posso impostare un
-#sistema con due incognite osservando i bytes del testo cifrato
+# Moreover, we know all messages start with 'From: ', then we are able to build a linear system: 
 # 'F' xor k0 = 213 --> ko = 147
 # 'r' xor k1 = 114 --> k1 = 111
 # 'o' xor k2 = 111 --> k2 = 35
+# ...
 
-# Ottengo i bytes del testo cifrato
-path = input("File da decifrare: ")
-file = open(path,"rb")
+# Bytes of the ciphertext
+path = input("File to decrypt: ")
+file = open(path, "rb")
 ct = list(file.read())
 
 final_A = 0
@@ -32,6 +31,7 @@ k0 = ct[0] ^ known_pt[0]
 k1 = ct[1] ^ known_pt[1]
 k2 = ct[2] ^ known_pt[2]
 
+#Bruteforce attack
 for A in range(0,255):
 	for C in range(0, 255):
 	
@@ -51,7 +51,7 @@ for i in range(int(len(ct))):
 print(f'A --> {final_A}')
 print(f'C --> {final_C}')
 
-#Scrivo il testo in chiaro sul file out.txt
+#Write the plaintext into file out.txt 
 with open("out.txt", "wb") as f:
     f.write(bytes(pt))
 
