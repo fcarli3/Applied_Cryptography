@@ -26,16 +26,16 @@ ki = k0
 print(f'A --> {A}')
 print(f'C --> {C}')
 
-#Cifro il messaggio in chiaro
+#Encrypt the plaintext
 for i in range(len(pt)):
 	ct.append(ki ^ pt[i])
 	ki = (A*ki + C)%n
 	
-#Scrivo il testo cifrato nel file ciphertext.txt
+#Write the ciphertext in file ciphertext.txt
 with open("ciphertext.txt", "wb") as f:
     f.write(bytes(ct))
  
-#Stampo i byte del testo cifrato   
-file = open("to_be_decripted/captured_ct.txt","rb")
+#Print ciphertext's bytes
+file = open("captured_ct.txt","rb")
 ct = list(file.read())
 print(f'Ciphertext: {ct}')
