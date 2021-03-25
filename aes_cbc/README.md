@@ -7,6 +7,7 @@ The program reads some text from a file called *file.txt* and encrypts it using 
 * IV is randomly chosen using OpenSSL libs
 
 The encryptor writes IV and the ciphertext into a new file called *file.txt.enc*. The decryptor reads from *file.txt.enc* and writes the decrypted text into a new file called *file.txt.enc.dec*.
+It has been used the approach of defensive programming to write the code: programs are memory safe and no memory leaks are possible.
 
 # Prerequisites
 The programs needs the installation of [OpenSSL](https://github.com/openssl/openssl), a TLS/SSL and crypto library.
