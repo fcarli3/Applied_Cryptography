@@ -38,7 +38,7 @@ openssl version
 ## 2048-bit RSA Generation
 Before running the program , the user should generate a pair of 2048-bit RSA keys using OpenSSL command-line tools. 
 
-* **RSA private key**: the following command generate a .pem file containing a 2048-bit key.
+* **RSA private key**: the following command generate a .pem file, protected by a user-chosen password, containing a 2048-bit key.
 
 ```bash
 openssl genrsa -aes128 -out private_key.pem 2048
