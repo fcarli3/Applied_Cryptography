@@ -1,4 +1,4 @@
-# DIGITAL ENVELOPE
+# Digital Envelope
 
 ## How it works
 First of all, the user should generate a pair of 2048-bit RSA keys and the private key must be protected by password.
