@@ -39,7 +39,7 @@ openssl version
 ```
 
 ## 2048-bit DH parameters Generation
-Before running the program , the user should generate 2048-bit DH parameters using OpenSSL command-line tools. 
+Before running the program , the user should generate 2048-bit DH parameters using the OpenSSL command-line tool. 
 
 ```bash
 openssl dhparam -C 2048
