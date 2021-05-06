@@ -8,8 +8,9 @@ that has been included in the code. After that, the program executes the followi
 2. Writes the public key into a .pem file
 3. Loads the peer's public key from a .pem file
 4. Derives a shared secret from the generated private key and the peer's public key
-5. Encypts an existing .txt file using the first 16 bytes of the shared secret key using AES-128 in CBC mode
-6. Decrypts the .txt file encrypted by the peer
+5. Gets the session key from the first 16 bytes of the digest of the previous shared secret, using SHA-256 hashing algorithm
+6. Encypts an existing .txt file using the first 16 bytes of the shared secret key using AES-128 in CBC mode
+7. Decrypts the .txt file encrypted by the peer
 
 ## Prerequisites 
 The programs needs the installation of [OpenSSL](https://github.com/openssl/openssl), a TLS/SSL and crypto library.
